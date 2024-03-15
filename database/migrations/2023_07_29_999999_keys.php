@@ -1,0 +1,119 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('cars', function(Blueprint $table) {
+            $table->foreign('owner_id', 'car_owner_key')
+                ->references('id')
+                ->on('users');
+
+            $table->foreign('mark_id', 'car_mark_key')
+                ->references('mark_id')
+                ->on('car_marks');
+        });
+
+        Schema::table('works', function(Blueprint $table) {
+
+            $table->foreign('client_id', 'work_client_key')
+                ->references('id')
+                ->on('users');
+
+            $table->foreign('car_id', 'work_car_key')
+                ->references('car_id')
+                ->on('cars');
+        });
+
+        Schema::table('articles', function(Blueprint $table) {
+
+            $table->foreign('client_id', 'article_client_key')
+                ->references('id')
+                ->on('users');
+
+            $table->foreign('car_id', 'article_car_key')
+                ->references('car_id')
+                ->on('cars');
+        });
+
+        Schema::table('notes', function(Blueprint $table) {
+
+            $table->foreign('client_id', 'note_client_key')
+                ->references('id')
+                ->on('users');
+
+            $table->foreign('car_id', 'note_car_key')
+                ->references('car_id')
+                ->on('cars');
+        });
+
+        Schema::table('gas', function(Blueprint $table) {
+
+            $table->foreign('client_id', 'gas_client_key')
+                ->references('id')
+                ->on('users');
+
+            $table->foreign('car_id', 'gas_car_key')
+                ->references('car_id')
+                ->on('cars');
+        });
+
+        Schema::table('payments', function(Blueprint $table) {
+
+            $table->foreign('type_id', 'payment_type_key')
+                ->references('type_id')
+                ->on('payment_types');
+
+            $table->foreign('client_id', 'payment_client_key')
+                ->references('id')
+                ->on('users');
+
+            $table->foreign('car_id', 'payment_car_key')
+                ->references('car_id')
+                ->on('cars');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('cars', function(Blueprint $table) {
+            $table->dropForeign('car_owner_key');
+        });
+
+        Schema::table('works', function(Blueprint $table) {
+            $table->dropForeign('work_client_key');
+            $table->dropForeign('work_car_key');
+        });
+
+        Schema::table('articles', function(Blueprint $table) {
+            $table->dropForeign('article_client_key');
+            $table->dropForeign('article_car_key');
+        });
+
+        Schema::table('notes', function(Blueprint $table) {
+            $table->dropForeign('note_client_key');
+            $table->dropForeign('note_car_key');
+        });
+
+        Schema::table('gas', function(Blueprint $table) {
+            $table->dropForeign('gas_client_key');
+            $table->dropForeign('gas_car_key');
+        });
+
+        Schema::table('payments', function(Blueprint $table) {
+            $table->dropForeign('payment_type_key');
+            $table->dropForeign('payment_client_key');
+            $table->dropForeign('payment_car_key');
+        });
+    }
+};
