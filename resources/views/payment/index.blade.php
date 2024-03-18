@@ -80,11 +80,11 @@
                 <tbody>
                     <tr class="border-bottom">
                         <th class="text-start">{{ __('Количество трат') }}</th>
-                        <td class="text-end">{{ count($payments) }}</td>
+                        <td class="text-end">{{ count($payments_all) }}</td>
                     </tr>
                     <tr class="border-bottom">
                         <th class="text-start">{{ __('Сумма трат') }}</th>
-                        <td class="text-end">{{ Helper::price(GasolineHelper::periodPrice($payments->toArray()['data'])) }}</td>
+                        <td class="text-end">{{ Helper::price(GasolineHelper::periodPrice($payments_all->toArray())) }}</td>
                     </tr>
                 </tbody>
             </table>

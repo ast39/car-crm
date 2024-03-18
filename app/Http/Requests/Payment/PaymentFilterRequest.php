@@ -24,10 +24,10 @@ class PaymentFilterRequest extends FormRequest
     {
         return [
 
-            'period_from' => 'nullable|date',
-            'period_to'   => 'nullable|date',
-            'car'         => 'nullable|integer',
-            'type'        => 'nullable|integer',
+            'period_from' => ['nullable', 'date'],
+            'period_to' => ['nullable', 'date'],
+            'car' => ['nullable', 'integer'],
+            'type' => ['nullable', 'integer'],
         ];
     }
 }

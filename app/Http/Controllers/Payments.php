@@ -34,11 +34,15 @@ class Payments extends Controller {
         ]);
 
         return view('payment.index', [
-            'payments' => Payment::with('car', 'type')
+            'payments' => Payment::with(['car', 'type'])
                 ->where('client_id', Auth::id())
                 ->filter($filter)
                 ->orderByDesc('created_at')
                 ->paginate(config('limits.payments')),
+            'payments_all' => Payment::where('client_id', Auth::id())
+                ->filter($filter)
+                ->orderByDesc('created_at')
+                ->get(),
             'cars'  => $this->cars(),
             'types' => $this->payment_types(),
         ]);

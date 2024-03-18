@@ -24,19 +24,19 @@ class GasStoreRequest extends FormRequest
     {
         return [
 
-            'car_id'      => 'integer|required',
-            'gas_station' => 'string|nullable',
-            'mileage'     => 'integer|required',
-            'gas_date'    => 'date|nullable',
-            'volume'      => [
+            'car_id' => ['integer', 'required', 'exists:cars,car_id'],
+            'gas_station' => ['string', 'nullable'],
+            'mileage' => ['integer', 'required'],
+            'gas_date' => ['date', 'nullable'],
+            'volume' => [
                 'required',
                 'regex:/^[-+]?\d+(\.\d{1,2})?$/',
             ],
-            'price'      => [
+            'price' => [
                 'required',
                 'regex:/^[-+]?\d+(\.\d{1,2})?$/',
             ],
-            'additional'  => 'string|nullable',
+            'additional' => ['string', 'nullable'],
         ];
     }
 }

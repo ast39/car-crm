@@ -24,9 +24,9 @@ class ArticleFilterRequest extends FormRequest
     {
         return [
 
-            'car'     => 'integer|nullable',
-            'title'   => 'string|nullable',
-            'article' => 'string|nullable',
+            'car' => ['integer', 'nullable'],
+            'title' => ['string', 'nullable'],
+            'article' => ['string', 'nullable'],
         ];
     }
 }

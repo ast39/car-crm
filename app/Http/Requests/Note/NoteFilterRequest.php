@@ -24,8 +24,8 @@ class NoteFilterRequest extends FormRequest
     {
         return [
 
-            'phrase' => 'nullable|string',
-            'car'    => 'nullable|integer',
+            'phrase' => ['nullable', 'string'],
+            'car' => ['nullable', 'integer'],
         ];
     }
 }

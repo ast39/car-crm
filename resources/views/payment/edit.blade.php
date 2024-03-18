@@ -27,8 +27,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="car_id" class="form-label required">{{ __('Автомобиль') }}</label>
-                    <select  class="form-control form-select" id="car_id" name="car_id">
+                    <label for="type_id" class="form-label required">{{ __('Категория') }}</label>
+                    <select  class="form-control form-select" id="type_id" name="type_id">
                         @forelse($types as $type)
                             <option {{ $type['type_id'] == $payment->type_id ? 'selected' : '' }} title="{{$type['title'] }}" value="{{ $type['type_id'] }}">{{ $type['title'] }}</option>
                         @empty

@@ -80,30 +80,30 @@
                 <tbody>
                     <tr class="border-bottom">
                         <th class="text-start">{{ __('Количество заправок') }}</th>
-                        <td class="text-end">{{ count($gasoline) }}</td>
+                        <td class="text-end">{{ count($gasoline_all) }}</td>
                     </tr>
                     <tr class="border-bottom">
                         <th class="text-start">{{ __('Количество литров') }}</th>
-                        <td class="text-end">{{ Helper::liters(GasolineHelper::periodLiters($gasoline->toArray()['data'])) }}</td>
+                        <td class="text-end">{{ Helper::liters(GasolineHelper::periodLiters($gasoline_all->toArray())) }}</td>
                     </tr>
                     <tr class="border-bottom">
                         <th class="text-start">{{ __('Сумма заправок') }}</th>
-                        <td class="text-end">{{ Helper::price(GasolineHelper::periodPrice($gasoline->toArray()['data'])) }}</td>
+                        <td class="text-end">{{ Helper::price(GasolineHelper::periodPrice($gasoline_all->toArray())) }}</td>
                     </tr>
                     <tr class="border-bottom">
                         <td colspan="2" class="bg-light"></td>
                     </tr>
                     <tr class="border-bottom">
                         <th class="text-start">{{ __('Средняя стоимость литра') }}</th>
-                        <td class="text-end">{{ Helper::price(GasolineHelper::avgLiterPrice($gasoline->toArray()['data']), true) }}</td>
+                        <td class="text-end">{{ Helper::price(GasolineHelper::avgLiterPrice($gasoline_all->toArray()), true) }}</td>
                     </tr>
                     <tr class="border-bottom">
                         <th class="text-start">{{ __('Средняя заправка в л.') }}</th>
-                        <td class="text-end">{{ Helper::liters(GasolineHelper::avgGasLiters($gasoline->toArray()['data'])) }}</td>
+                        <td class="text-end">{{ Helper::liters(GasolineHelper::avgGasLiters($gasoline_all->toArray())) }}</td>
                     </tr>
                     <tr class="border-bottom">
                         <th class="text-start">{{ __('Средняя заправка в р.') }}</th>
-                        <td class="text-end">{{ Helper::price(GasolineHelper::avgGasPrice($gasoline->toArray()['data'])) }}</td>
+                        <td class="text-end">{{ Helper::price(GasolineHelper::avgGasPrice($gasoline_all->toArray())) }}</td>
                     </tr>
                 </tbody>
             </table>

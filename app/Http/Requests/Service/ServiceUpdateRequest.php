@@ -24,18 +24,18 @@ class ServiceUpdateRequest extends FormRequest
     {
         return [
 
-            'bike_id'       => 'integer|nullable',
-            'title'         => 'string|nullable',
-            'work_list'     => 'string|nullable',
-            'service_title' => 'string|nullable',
-            'mileage'       => 'integer|nullable',
-            'service_date'  => 'date|nullable',
-            'price'         => [
+            'bike_id' => ['integer', 'nullable', 'exists:cars,car_id'],
+            'title' => ['string', 'nullable'],
+            'work_list' => ['string', 'nullable'],
+            'service_title' => ['string', 'nullable'],
+            'mileage' => ['integer', 'nullable'],
+            'service_date' => ['date', 'nullable'],
+            'price' => [
                 'nullable',
                 'regex:/^[-+]?\d+(\.\d{1,2})?$/',
             ],
-            'status'        => 'integer|nullable',
-            'additional'    => 'string|nullable',
+            'status' => ['integer', 'nullable'],
+            'additional' => ['string', 'nullable'],
         ];
     }
 }

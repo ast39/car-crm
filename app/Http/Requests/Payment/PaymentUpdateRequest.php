@@ -24,16 +24,16 @@ class PaymentUpdateRequest extends FormRequest
     {
         return [
 
-            'car_id'       => 'integer|nullable',
-            'type_id'      => 'integer|nullable',
-            'title'        => 'string|nullable',
-            'mileage'      => 'integer|nullable',
-            'payment_date' => 'date|nullable',
+            'car_id' => ['integer', 'nullable', 'exists:cars,car_id'],
+            'type_id'      => ['integer', 'nullable'],
+            'title'        => ['string', 'nullable'],
+            'mileage'      => ['integer', 'nullable'],
+            'payment_date' => ['date', 'nullable'],
             'price'        => [
                 'nullable',
                 'regex:/^[-+]?\d+(\.\d{1,2})?$/',
             ],
-            'additional'   => 'string|nullable',
+            'additional'   => ['string', 'nullable'],
         ];
     }
 }

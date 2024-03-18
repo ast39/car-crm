@@ -24,16 +24,16 @@ class PaymentStoreRequest extends FormRequest
     {
         return [
 
-            'car_id'       => 'integer|required',
-            'type_id'      => 'integer|required',
-            'title'        => 'string|required',
-            'mileage'      => 'integer|nullable',
-            'payment_date' => 'date|nullable',
-            'price'        => [
+            'car_id' => ['integer', 'required', 'exists:cars,car_id'],
+            'type_id' => ['integer', 'required'],
+            'title' => ['string', 'required'],
+            'mileage' => ['integer', 'nullable'],
+            'payment_date' => ['date', 'nullable'],
+            'price' => [
                 'required',
                 'regex:/^[-+]?\d+(\.\d{1,2})?$/',
             ],
-            'additional'   => 'string|nullable',
+            'additional' => ['string', 'nullable'],
         ];
     }
 }

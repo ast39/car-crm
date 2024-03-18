@@ -24,18 +24,18 @@ class ServiceStoreRequest extends FormRequest
     {
         return [
 
-            'car_id'        => 'integer|required',
-            'title'         => 'string|required',
-            'work_list'     => 'string|nullable',
-            'service_title' => 'string|nullable',
-            'mileage'       => 'integer|nullable',
-            'service_date'  => 'date|nullable',
-            'price'         => [
+            'car_id' => ['integer', 'required', 'exists:cars,car_id'],
+            'title' => ['string', 'required'],
+            'work_list' => ['string', 'nullable'],
+            'service_title' => ['string', 'nullable'],
+            'mileage' => ['integer', 'nullable'],
+            'service_date'  => ['date', 'nullable'],
+            'price' => [
                 'nullable',
                 'regex:/^[-+]?\d+(\.\d{1,2})?$/',
             ],
-            'status'        => 'integer|required',
-            'additional'    => 'string|nullable',
+            'status' => ['integer', 'required'],
+            'additional' => ['string', 'nullable'],
         ];
     }
 }

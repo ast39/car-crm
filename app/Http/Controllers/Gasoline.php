@@ -39,6 +39,10 @@ class Gasoline extends Controller {
                 ->filter($filter)
                 ->orderByDesc('created_at')
                 ->paginate(config('limits.gas')),
+            'gasoline_all' => Gas::where('client_id', Auth::id())
+                ->filter($filter)
+                ->orderByDesc('created_at')
+                ->get(),
             'cars' => $this->cars(),
         ]);
     }

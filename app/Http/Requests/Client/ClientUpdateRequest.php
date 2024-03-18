@@ -24,8 +24,8 @@ class ClientUpdateRequest extends FormRequest
     {
         return [
 
-            'name'    => 'string|nullable',
-            'email'   => 'string|nullable',
+            'name' => ['string', 'nullable'],
+            'email' => ['string', 'nullable'],
         ];
     }
 }
